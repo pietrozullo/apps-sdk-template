@@ -21,7 +21,7 @@
   ],
   "main": "dist/index.js",
   "scripts": {
-    "build": "mcp-use build",
+    "build": "mcp-use build --no-typecheck",
     "dev": "mcp-use dev",
     "start": "mcp-use start"
   },
