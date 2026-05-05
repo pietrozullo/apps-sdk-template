@@ -31,6 +31,15 @@ server.tool({
   },
 })
 
+server.tool({
+  name: 'which-dockerfile',
+  description: 'Returns the identifier baked into the image at build time, so callers can verify which Dockerfile produced this deployment.',
+  cb: async () => {
+    const variant = process.env.DOCKERFILE_VARIANT ?? 'unset'
+    return { content: [{ type: 'text', text: `DOCKERFILE_VARIANT=${variant}` }] }
+  },
+})
+
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3000
 const HOST = process.env.HOST || 'localhost'
