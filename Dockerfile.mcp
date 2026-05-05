@@ -5,10 +5,8 @@ RUN echo "============================================" && \
     echo "  BUILDING FROM: Dockerfile.mcp" && \
     echo "============================================"
 
-COPY package.json ./
-RUN npm install
-
 COPY . .
+RUN npm install
 RUN npm run build
 
 ENV PORT=3000
